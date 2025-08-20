@@ -12,7 +12,7 @@ ROS 2 uses a DDS-based communication stack, but suffers from severe performance 
 
 ### Step-by-Step Guide
 
-#### 1. Navigate to your ROS 2 package directory
+## 🔧 Install
 
 ```bash
 # 1. Create a new ROS 2 workspace (if not created yet)
