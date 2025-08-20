@@ -6,7 +6,7 @@
 
 
 ## 📝 Paper Summary
-아직 논문 제출을 안해서 abstract을 올려야할지 모르겠어요
+
 
 ## 💡 How to run it from the terminal
 
