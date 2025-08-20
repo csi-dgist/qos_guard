@@ -8,8 +8,11 @@
 ## 📝 Paper Summary
 ROS 2 uses a DDS-based communication stack, but suffers from severe performance degradation when transmitting large payloads over wireless networks. The key root causes are identified as IP fragmentation, inefficient retransmission timing, and buffer bursts. To address these issues, the paper proposes a lightweight optimization framework that leverages only XML-based QoS configuration without modifying the DDS protocol. The optimization consists of: (i) setting the RTPS message size to 1472 B, (ii) configuring the retransmission rate as *n* = *2r*, and (iii) adjusting the HistoryCache size based on payload size *u* and link bandwidth. All improvements are fully compatible with existing ROS 2 applications and require no changes to application logic or middleware internals. Experiments were conducted on ROS 2 Humble using Fast DDS 2.6.9 version over IEEE 802.11ac wireless links. Test scenarios included different packet error rates (1%, 20%), temporary link outages, and varying payload sizes (32–512 KB). Default DDS and LARGE_DATA mode failed to maintain performance under high loss, while the proposed optimization remained stable up to 512 KB. The effectiveness of HistoryCache tuning was particularly evident in link outage recovery scenarios. Overall, this work demonstrates that practical, protocol-compliant DDS tuning enables robust and real-time wireless communication in ROS 2.
 
+## 💡 How to run it from the terminal
 
-## 🔧 Installation
+### Step-by-Step Guide
+
+#### 1. Navigate to your ROS 2 package directory
 
 ```bash
 # 1. Create a new ROS 2 workspace (if not created yet)
@@ -138,5 +141,19 @@ Below is an example of how the checker output looks in the terminal:
 <img src="qos_guard_example.png" width="600" height="400"/>
 
 > 🔴 Red: Critical  🟠 Orange: Conditional  🟣 Purple: Incidental
+
+
+
+## 📢 Notice
+This project is currently compatible with ROS 2 Humble using Fast DDS 2.6.9.
+Support for other DDS vendors such as Cyclone DDS and OpenDDS is planned in future updates.
+
+### Contact & Collaboration
+If you have any issues or questions about using this tool, please feel free to contact us anytime.
+
+**Email**: [leesh2913@dgist.ac.kr](mailto:leesh2913@dgist.ac.kr)  
+**Homepage**: [hun0130.github.io](https://hun0130.github.io/)
+
+Research collaborations and industry-academia partnerships are also welcome!
 
 
