@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+    <participant profile_name="default_participant_profile" is_default_profile="true">
+        <rtps>
+            <name>test_participant</name>
+        </rtps>
+    </participant>
+
+    <subscriber profile_name="latency_subscriber_profile" is_default_profile="true">
+    
+			<topic>
+
+            <historyQos> 
+                <kind>KEEP_ALL</kind>
+            </historyQos>
+			    <resourceLimitsQos>
+			        <max_samples>500</max_samples> 
+			        <max_samples_per_instance>50</max_samples_per_instance>
+                    <max_instances>10</max_instances>
+			    </resourceLimitsQos>  
+
+            </topic>
+
+          
+	        <qos>
+
+	            <durability>
+                    <kind>VOLATILE</kind>
+                </durability>
+
+		        <reliability>
+		            <kind>RELIABLE</kind>   
+		        </reliability>
+
+                <liveliness>
+                    <kind>AUTOMATIC</kind>
+                    <lease_duration>
+                        <sec>10</sec>
+                        <nanosec>0</nanosec>
+                    </lease_duration>
+                    <announcement_period>
+                        <sec>3</sec>
+                        <nanosec>0</nanosec>
+                    </announcement_period>
+                </liveliness>
+
+                <deadline>
+                    <period>
+                        <sec>4</sec>
+                        <nanosec>0</nanosec>
+                    </period>
+                </deadline>
+
+                <ownership>
+                    <kind>SHARED</kind>
+                </ownership>
+
+
+                <destinationOrder>
+                    <kind>BY_RECEPTION_TIMESTAMP</kind>
+                </destinationOrder>
+
+
+                <readerDataLifecycle>
+                    <autopurge_disposed_samples_delay>
+                        <sec>5</sec>
+                    </autopurge_disposed_samples_delay>
+                    <autopurge_nowriter_samples_delay>
+                    <sec>5</sec>
+                    </autopurge_nowriter_samples_delay>
+                </readerDataLifecycle>
+
+
+                                    
+                <partition>
+                    <names>
+                        <name>A</name>
+                    </names>
+                </partition>
+                <userData>
+                    <value>4.4.4.4</value>
+                </userData>
+                
+	        </qos>
+
+	        
+	        <times>
+
+                <initialAcknackDelay>
+                    <sec>0</sec> 
+                    <nanosec>0</nanosec>
+                </initialAcknackDelay>
+                <heartbeatResponseDelay> 
+                    <sec>0</sec> 
+                    <nanosec>0</nanosec>
+                </heartbeatResponseDelay>
+
+            </times>
+    </subscriber>
+</profiles>

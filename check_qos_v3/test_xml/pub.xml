@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+    <participant profile_name="default_participant_profile" is_default_profile="true">
+        <rtps>
+            <name>test_participant</name>
+        </rtps>
+    </participant>
+
+    <publisher profile_name="latency_publisher_profile" is_default_profile="true">
+    
+            <topic>  
+                <historyQos> 
+                    <kind>KEEP_ALL</kind> 
+
+                 
+                </historyQos>
+                
+			         
+			    <resourceLimitsQos>
+			        <max_samples>300</max_samples> 
+                    <max_instances>200</max_instances>
+			        <max_samples_per_instance>100</max_samples_per_instance>
+			    </resourceLimitsQos>  
+            </topic>
+            
+
+                <qos>
+
+                    <durability>
+                        <kind>VOLATILE</kind>
+                    </durability>
+
+                    <liveliness> 
+                        <kind>AUTOMATIC</kind> 
+                        <lease_duration>
+                            <sec>6</sec> 
+                            <nanosec>0</nanosec>
+                        </lease_duration>
+                        <announcement_period>
+                            <sec>5</sec> 
+                        </announcement_period>
+                    </liveliness>
+                
+
+                    <reliability>
+                        <kind>RELIABLE</kind>
+                        <max_blocking_time> 
+                            <sec>0</sec> 
+                        </max_blocking_time>
+                    </reliability>
+
+                    <deadline>
+                        <period>
+                            <sec>0</sec>
+                            <nanosec>1</nanosec>
+                        </period>
+                    </deadline>
+
+                    <lifespan>
+                        <duration>
+                            <sec>1</sec>
+                            <nanosec>0</nanosec>
+                        </duration>
+                    </lifespan>
+                    
+                  
+
+                    <ownership>
+                        <kind>SHARED</kind>
+                    </ownership>
+
+                    <destinationOrder>
+                        <kind>BY_RECEPTION_TIMESTAMP</kind>
+                    </destinationOrder>
+
+
+                    <writerDataLifecycle>
+                        <autodispose_unregistered_instances>true</autodispose_unregistered_instances>
+                    </writerDataLifecycle>
+
+                    <entity_factory>
+                        <autoenable_created_entities>true</autoenable_created_entities>
+                    </entity_factory>
+                    
+                    <partition>
+                        <names>
+                            <name>A</name>
+                        </names>
+                    </partition>
+                    <userData>
+                        <value>4.4.4.4</value>
+                    </userData>
+
+                    
+                
+                </qos>
+					
+            
+
+		        <times>
+                <initialHeartbeatDelay> 
+                    <nanosec>0</nanosec>
+                </initialHeartbeatDelay>
+		            <heartbeatPeriod> 
+		                <sec>3</sec>
+		                <nanosec>0</nanosec> 
+		            </heartbeatPeriod>
+                <nackResponseDelay> 
+                    <nanosec>0</nanosec>
+                </nackResponseDelay>
+
+                <nackSupressionDuration> 
+                    <sec>0</sec> 
+                </nackSupressionDuration>
+		        </times>
+
+
+    </publisher>
+</profiles>
